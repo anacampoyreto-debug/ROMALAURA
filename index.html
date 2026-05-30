@@ -6,9 +6,7 @@
 <title>UD 10 - El Imperio Romano</title>
 
 <style>
-*{
-box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
 font-family:Arial, sans-serif;
@@ -22,24 +20,14 @@ line-height:1.6;
 .container{
 max-width:1150px;
 margin:auto;
-background:#ffffff;
+background:#fff;
 padding:28px;
 border-radius:18px;
-box-shadow:0 0 18px rgba(0,0,0,0.12);
+box-shadow:0 0 18px rgba(0,0,0,.12);
 }
 
-h1{
-text-align:center;
-color:#6f3f22;
-font-size:38px;
-margin-bottom:5px;
-}
-
-.subtitle{
-text-align:center;
-font-size:18px;
-margin-bottom:30px;
-}
+h1{text-align:center;color:#6f3f22;font-size:38px;margin-bottom:5px}
+.subtitle{text-align:center;font-size:18px;margin-bottom:25px}
 
 h2{
 background:#8b5a35;
@@ -49,10 +37,7 @@ border-radius:12px;
 margin-top:45px;
 }
 
-h3{
-color:#6f3f22;
-margin-top:25px;
-}
+h3{color:#6f3f22;margin-top:22px}
 
 .section{
 margin-bottom:45px;
@@ -66,35 +51,12 @@ border-radius:12px;
 margin-top:18px;
 }
 
-.texto{
-background:#faf4eb;
-border-left:7px solid #b98755;
-}
-
-.actividad{
-background:#eef6ff;
-border-left:7px solid #6fa8dc;
-}
-
-.mapa{
-background:#fff7d6;
-border-left:7px solid #e0b64b;
-}
-
-.relaciona{
-background:#f3edff;
-border-left:7px solid #9b79d6;
-}
-
-.quiz{
-background:#edf9ef;
-border-left:7px solid #6dbb75;
-}
-
-.resumen{
-background:#f7f7f7;
-border-left:7px solid #999;
-}
+.texto{background:#faf4eb;border-left:7px solid #b98755}
+.actividad{background:#eef6ff;border-left:7px solid #6fa8dc}
+.mapa{background:#fff7d6;border-left:7px solid #e0b64b}
+.relaciona{background:#f3edff;border-left:7px solid #9b79d6}
+.quiz{background:#edf9ef;border-left:7px solid #6dbb75}
+.resumen{background:#f7f7f7;border-left:7px solid #999}
 
 .progreso{
 display:inline-block;
@@ -104,6 +66,18 @@ padding:8px 14px;
 border-radius:20px;
 font-weight:bold;
 margin-bottom:10px;
+}
+
+.puntos{
+position:sticky;
+top:10px;
+z-index:10;
+background:#fff8e7;
+border:2px solid #d6a94e;
+padding:12px;
+border-radius:12px;
+font-weight:bold;
+margin-bottom:20px;
 }
 
 table{
@@ -119,11 +93,9 @@ padding:10px;
 vertical-align:top;
 }
 
-th{
-background:#dfc7aa;
-}
+th{background:#dfc7aa}
 
-input, textarea{
+input, textarea, select{
 width:100%;
 padding:9px;
 border:1px solid #888;
@@ -132,33 +104,31 @@ margin:6px 0 12px 0;
 font-size:15px;
 }
 
-textarea{
-min-height:70px;
-}
+textarea{min-height:70px}
 
 button{
 background:#8b5a35;
 color:white;
 border:0;
-padding:10px 16px;
+padding:9px 14px;
 border-radius:10px;
 cursor:pointer;
 font-weight:bold;
-margin-top:8px;
+margin:5px 5px 5px 0;
 }
 
-button:hover{
-background:#6f3f22;
-}
+button:hover{background:#6f3f22}
 
-.hidden{
-display:none;
-background:#fff;
-padding:12px;
+.feedback{
+font-weight:bold;
+padding:8px;
 border-radius:8px;
-margin-top:10px;
-border:1px dashed #777;
+margin-top:6px;
 }
+
+.ok{background:#e6f6e8;color:#186b26;border:1px solid #6dbb75}
+.ko{background:#fdeaea;color:#a42020;border:1px solid #e28b8b}
+.hint{background:#fff;border:1px dashed #777;padding:10px;border-radius:8px;margin-top:8px;display:none}
 
 .timeline{
 display:grid;
@@ -176,23 +146,10 @@ text-align:center;
 font-weight:bold;
 }
 
-.option{
-display:block;
-margin:6px 0;
-}
-
 @media print{
-body{
-background:white;
-padding:0;
-}
-.container{
-box-shadow:none;
-border-radius:0;
-}
-button{
-display:none;
-}
+button,.puntos{display:none}
+body{background:white;padding:0}
+.container{box-shadow:none;border-radius:0}
 }
 </style>
 </head>
@@ -201,28 +158,30 @@ display:none;
 <div class="container">
 
 <h1>UD 10 — EL IMPERIO ROMANO</h1>
-<p class="subtitle">Material adaptado para Laura</p>
+<p class="subtitle">Material interactivo adaptado para Laura</p>
+
+<div class="puntos">
+Puntuación: <span id="score">0</span> puntos
+</div>
 
 <div class="box resumen">
 <h3>Cómo trabajar</h3>
 <ol>
 <li>Lee el texto.</li>
 <li>Busca la información en el texto.</li>
-<li>Completa las actividades.</li>
-<li>Relaciona conceptos.</li>
-<li>Completa las tablas.</li>
-<li>Haz el quiz.</li>
-<li>Lee el resumen final del bloque.</li>
+<li>Escribe la respuesta.</li>
+<li>Pulsa “Comprobar”.</li>
+<li>Si fallas, revisa el texto y vuelve a intentarlo.</li>
 </ol>
 </div>
 
 <div class="box resumen">
 <h3>Línea temporal general</h3>
 <div class="timeline">
-<div>Siglo VIII a.C.<br> Nace Roma</div>
-<div>509 a.C.<br> Comienza la República</div>
-<div>27 a.C.<br> Comienza el Imperio</div>
-<div>476<br> Cae el Imperio romano de Occidente</div>
+<div>Siglo VIII a.C.<br>Nace Roma</div>
+<div>509 a.C.<br>Comienza la República</div>
+<div>27 a.C.<br>Comienza el Imperio</div>
+<div>476<br>Cae el Imperio romano de Occidente</div>
 </div>
 </div>
 
@@ -242,45 +201,41 @@ display:none;
 
 <div class="box actividad">
 <h3>Actividades simples</h3>
-<p>Busca los pueblos de Roma. Escríbelos.</p>
-<input placeholder="Pueblo 1">
-<input placeholder="Pueblo 2">
-<input placeholder="Pueblo 3">
-<p>Completa.</p>
-<p>Roma nació sobre el monte:</p>
-<input>
-<button onclick="toggle('r1a')">Mostrar ayuda</button>
-<div id="r1a" class="hidden">Busca la frase: “Roma se construyó sobre el monte Palatino”.</div>
+<p>Completa: Roma nació sobre el monte...</p>
+<input id="b1_monte">
+<button onclick="checkText('b1_monte',['palatino'],'fb_b1_monte')">Comprobar</button>
+<button onclick="toggle('ayuda_b1_monte')">Ayuda</button>
+<div id="ayuda_b1_monte" class="hint">Busca la frase: “Roma se construyó sobre el monte Palatino”.</div>
+<div id="fb_b1_monte" class="feedback"></div>
+
+<p>Escribe un pueblo que vivía en Roma.</p>
+<input id="b1_pueblo">
+<button onclick="checkText('b1_pueblo',['latinos','sabinos','etruscos'],'fb_b1_pueblo')">Comprobar</button>
+<div id="fb_b1_pueblo" class="feedback"></div>
 </div>
 
 <div class="box mapa">
 <h3>Mapa conceptual</h3>
-<p>ROMA → nació en __________________</p>
-<p>ROMA → tenía estos pueblos:</p>
-<ul>
-<li>__________________</li>
-<li>__________________</li>
-<li>__________________</li>
-</ul>
-<p>ETRUSCOS → ayudaron a crear una __________________</p>
-<p>RÓMULO Y REMO → eran una __________________</p>
+<p>ROMA → nació en <input id="b1_map1"></p>
+<button onclick="checkText('b1_map1',['palatino'],'fb_b1_map1')">Comprobar</button>
+<div id="fb_b1_map1" class="feedback"></div>
+
+<p>ETRUSCOS → ayudaron a crear una <input id="b1_map2"></p>
+<button onclick="checkText('b1_map2',['ciudad'],'fb_b1_map2')">Comprobar</button>
+<div id="fb_b1_map2" class="feedback"></div>
 </div>
 
 <div class="box relaciona">
 <h3>Relaciona desordenado</h3>
 <table>
 <tr><th>Número</th><th>Respuesta</th><th>Letra</th></tr>
-<tr><td>1. Monte Palatino</td><td>_____</td><td>A. ayudaron a crear Roma</td></tr>
-<tr><td>2. Etruscos</td><td>_____</td><td>B. leyenda romana</td></tr>
-<tr><td>3. Rómulo y Remo</td><td>_____</td><td>C. pueblo de Roma</td></tr>
-<tr><td>4. Latinos</td><td>_____</td><td>D. lugar donde nació Roma</td></tr>
+<tr><td>1. Monte Palatino</td><td><input id="b1_r1" placeholder="Letra"></td><td>A. ayudaron a crear Roma</td></tr>
+<tr><td>2. Etruscos</td><td><input id="b1_r2" placeholder="Letra"></td><td>B. leyenda romana</td></tr>
+<tr><td>3. Rómulo y Remo</td><td><input id="b1_r3" placeholder="Letra"></td><td>C. pueblo de Roma</td></tr>
+<tr><td>4. Latinos</td><td><input id="b1_r4" placeholder="Letra"></td><td>D. lugar donde nació Roma</td></tr>
 </table>
-</div>
-
-<div class="box actividad">
-<h3>Escribe la palabra correcta</h3>
-<p>Roma nació sobre el monte __________.</p>
-<p>(Palatino / Mediterráneo)</p>
+<button onclick="checkRelaciona('b1',[['b1_r1','d'],['b1_r2','a'],['b1_r3','b'],['b1_r4','c']],'fb_b1_rel')">Comprobar</button>
+<div id="fb_b1_rel" class="feedback"></div>
 </div>
 
 <div class="box actividad">
@@ -294,29 +249,29 @@ display:none;
 <h3>Tabla parcial</h3>
 <table>
 <tr><th>Persona / cosa</th><th>¿Qué es?</th><th>¿Qué hizo?</th></tr>
-<tr><td>Monte Palatino</td><td>monte de Roma</td><td>__________________</td></tr>
-<tr><td>Etruscos</td><td>__________________</td><td>ayudaron a crear la ciudad</td></tr>
+<tr><td>Monte Palatino</td><td>monte de Roma</td><td><input id="b1_tab1"></td></tr>
+<tr><td>Etruscos</td><td><input id="b1_tab2"></td><td>ayudaron a crear la ciudad</td></tr>
 </table>
-
-<h3>Tabla más vacía</h3>
-<table>
-<tr><th>Persona / cosa</th><th>¿Qué es?</th><th>¿Qué hizo?</th></tr>
-<tr><td>Rómulo y Remo</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Latinos</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Sabinos</td><td>__________________</td><td>__________________</td></tr>
-</table>
+<button onclick="checkMulti([['b1_tab1',['nacio','nació','lugar']],['b1_tab2',['pueblo']]],'fb_b1_tab')">Comprobar tabla</button>
+<div id="fb_b1_tab" class="feedback"></div>
 </div>
 
 <div class="box quiz">
 <h3>Quiz de 6 preguntas</h3>
-<ol>
-<li>¿En qué siglo nació Roma? a) siglo VIII a.C. b) siglo I c) siglo V</li>
-<li>¿Sobre qué monte nació Roma? a) Olimpo b) Palatino c) Capitolio</li>
-<li>¿Qué pueblo ayudó a crear la ciudad? a) etruscos b) egipcios c) persas</li>
-<li>¿Qué pueblos vivían en Roma? a) latinos, sabinos y etruscos b) chinos y japoneses c) persas y árabes</li>
-<li>¿Quiénes forman una leyenda romana? a) César y Octavio b) Rómulo y Remo c) Teodosio y Aníbal</li>
-<li>¿Roma nació primero como monarquía? a) sí b) no</li>
-</ol>
+<p>1. ¿Sobre qué monte nació Roma?</p>
+<select id="b1_q1"><option></option><option>Olimpo</option><option>Palatino</option><option>Capitolio</option></select>
+<p>2. ¿Qué pueblo ayudó a crear la ciudad?</p>
+<select id="b1_q2"><option></option><option>Etruscos</option><option>Egipcios</option><option>Persas</option></select>
+<p>3. ¿Quiénes forman una leyenda romana?</p>
+<select id="b1_q3"><option></option><option>César y Octavio</option><option>Rómulo y Remo</option><option>Teodosio y Aníbal</option></select>
+<p>4. ¿En qué siglo nació Roma?</p>
+<select id="b1_q4"><option></option><option>Siglo VIII a.C.</option><option>Siglo I</option><option>Siglo V</option></select>
+<p>5. ¿Los latinos vivían en Roma?</p>
+<select id="b1_q5"><option></option><option>Sí</option><option>No</option></select>
+<p>6. ¿Roma tuvo una leyenda de origen?</p>
+<select id="b1_q6"><option></option><option>Sí</option><option>No</option></select>
+<button onclick="checkQuiz([['b1_q1','Palatino'],['b1_q2','Etruscos'],['b1_q3','Rómulo y Remo'],['b1_q4','Siglo VIII a.C.'],['b1_q5','Sí'],['b1_q6','Sí']],'fb_b1_quiz')">Comprobar quiz</button>
+<div id="fb_b1_quiz" class="feedback"></div>
 </div>
 
 <div class="box resumen">
@@ -346,36 +301,38 @@ display:none;
 
 <div class="box actividad">
 <h3>Actividades simples</h3>
-<p>Rodea quién tenía más poder.</p>
-<p><strong>PATRICIOS / PLEBEYOS</strong></p>
-<p>Completa.</p>
-<p>Los comicios servían para:</p>
-<input>
+<p>Completa: Los comicios servían para...</p>
+<input id="b2_comicios">
+<button onclick="checkText('b2_comicios',['votar'],'fb_b2_comicios')">Comprobar</button>
+<div id="fb_b2_comicios" class="feedback"></div>
+
+<p>¿Quiénes tenían poder y dinero?</p>
+<input id="b2_patricios">
+<button onclick="checkText('b2_patricios',['patricios'],'fb_b2_patricios')">Comprobar</button>
+<div id="fb_b2_patricios" class="feedback"></div>
 </div>
 
 <div class="box mapa">
 <h3>Mapa conceptual</h3>
-<p>ROMA → dejó de tener __________________</p>
-<p>ROMA → se convirtió en una __________________</p>
-<p>SENADO → ayudaba a __________________</p>
-<p>COMICIOS → servían para __________________</p>
+<p>ROMA → se convirtió en una <input id="b2_map1"></p>
+<button onclick="checkText('b2_map1',['republica','república'],'fb_b2_map1')">Comprobar</button>
+<div id="fb_b2_map1" class="feedback"></div>
+<p>SENADO → ayudaba a <input id="b2_map2"></p>
+<button onclick="checkText('b2_map2',['gobernar'],'fb_b2_map2')">Comprobar</button>
+<div id="fb_b2_map2" class="feedback"></div>
 </div>
 
 <div class="box relaciona">
 <h3>Relaciona desordenado</h3>
 <table>
 <tr><th>Número</th><th>Respuesta</th><th>Letra</th></tr>
-<tr><td>1. Senado</td><td>_____</td><td>A. votar</td></tr>
-<tr><td>2. Patricios</td><td>_____</td><td>B. trabajadores y pagaban impuestos</td></tr>
-<tr><td>3. Comicios</td><td>_____</td><td>C. ayudaba a gobernar</td></tr>
-<tr><td>4. Plebeyos</td><td>_____</td><td>D. grupo con poder y dinero</td></tr>
+<tr><td>1. Senado</td><td><input id="b2_r1"></td><td>A. votar</td></tr>
+<tr><td>2. Patricios</td><td><input id="b2_r2"></td><td>B. trabajadores y pagaban impuestos</td></tr>
+<tr><td>3. Comicios</td><td><input id="b2_r3"></td><td>C. ayudaba a gobernar</td></tr>
+<tr><td>4. Plebeyos</td><td><input id="b2_r4"></td><td>D. grupo con poder y dinero</td></tr>
 </table>
-</div>
-
-<div class="box actividad">
-<h3>Escribe la palabra correcta</h3>
-<p>Los __________ tenían poder y dinero.</p>
-<p>(patricios / esclavos)</p>
+<button onclick="checkRelaciona('b2',[['b2_r1','c'],['b2_r2','d'],['b2_r3','a'],['b2_r4','b']],'fb_b2_rel')">Comprobar</button>
+<div id="fb_b2_rel" class="feedback"></div>
 </div>
 
 <div class="box actividad">
@@ -385,33 +342,32 @@ display:none;
 <tr><td>Senado</td><td>institución romana</td><td>ayudaba a gobernar</td></tr>
 <tr><td>Comicios</td><td>asambleas romanas</td><td>servían para votar</td></tr>
 </table>
-
 <h3>Tabla parcial</h3>
 <table>
 <tr><th>Persona / cosa</th><th>¿Qué es?</th><th>¿Qué hacía?</th></tr>
-<tr><td>Senado</td><td>institución romana</td><td>__________________</td></tr>
-<tr><td>Comicios</td><td>__________________</td><td>servían para votar</td></tr>
+<tr><td>Senado</td><td>institución romana</td><td><input id="b2_tab1"></td></tr>
+<tr><td>Comicios</td><td><input id="b2_tab2"></td><td>servían para votar</td></tr>
 </table>
-
-<h3>Tabla más vacía</h3>
-<table>
-<tr><th>Persona / cosa</th><th>¿Qué es?</th><th>¿Qué hacía?</th></tr>
-<tr><td>Patricios</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Plebeyos</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>República</td><td>__________________</td><td>__________________</td></tr>
-</table>
+<button onclick="checkMulti([['b2_tab1',['gobernar']],['b2_tab2',['asamblea','asambleas']]],'fb_b2_tab')">Comprobar tabla</button>
+<div id="fb_b2_tab" class="feedback"></div>
 </div>
 
 <div class="box quiz">
 <h3>Quiz de 6 preguntas</h3>
-<ol>
-<li>¿En qué año terminó la monarquía? a) 509 a.C. b) 476 c) 27 a.C.</li>
-<li>¿Cómo se llamó el nuevo sistema? a) Imperio b) República c) monarquía</li>
-<li>¿Quién tenía poder y dinero? a) plebeyos b) patricios c) esclavos</li>
-<li>¿Quién trabajaba y pagaba impuestos? a) plebeyos b) emperadores c) senadores</li>
-<li>¿Qué institución ayudaba a gobernar? a) Senado b) ejército c) templo</li>
-<li>¿Qué hacían los comicios? a) luchar b) votar c) construir</li>
-</ol>
+<p>1. ¿En qué año terminó la monarquía?</p>
+<select id="b2_q1"><option></option><option>509 a.C.</option><option>476</option><option>27 a.C.</option></select>
+<p>2. ¿Cómo se llamó el nuevo sistema?</p>
+<select id="b2_q2"><option></option><option>República</option><option>Imperio</option><option>Monarquía</option></select>
+<p>3. ¿Quién tenía poder y dinero?</p>
+<select id="b2_q3"><option></option><option>Patricios</option><option>Plebeyos</option><option>Esclavos</option></select>
+<p>4. ¿Quién pagaba impuestos?</p>
+<select id="b2_q4"><option></option><option>Plebeyos</option><option>Emperadores</option><option>Senadores</option></select>
+<p>5. ¿Qué institución ayudaba a gobernar?</p>
+<select id="b2_q5"><option></option><option>Senado</option><option>Ejército</option><option>Templo</option></select>
+<p>6. ¿Qué hacían los comicios?</p>
+<select id="b2_q6"><option></option><option>Votar</option><option>Luchar</option><option>Construir</option></select>
+<button onclick="checkQuiz([['b2_q1','509 a.C.'],['b2_q2','República'],['b2_q3','Patricios'],['b2_q4','Plebeyos'],['b2_q5','Senado'],['b2_q6','Votar']],'fb_b2_quiz')">Comprobar quiz</button>
+<div id="fb_b2_quiz" class="feedback"></div>
 </div>
 
 <div class="box resumen">
@@ -441,41 +397,38 @@ display:none;
 
 <div class="box actividad">
 <h3>Actividades simples</h3>
-<p>Escribe dos territorios conquistados por Roma.</p>
-<input placeholder="Territorio 1">
-<input placeholder="Territorio 2">
-<p>Completa.</p>
-<p>Roma luchó contra:</p>
-<input>
+<p>Completa: Los soldados romanos formaban las...</p>
+<input id="b3_legiones">
+<button onclick="checkText('b3_legiones',['legiones'],'fb_b3_legiones')">Comprobar</button>
+<div id="fb_b3_legiones" class="feedback"></div>
+
+<p>Roma luchó contra...</p>
+<input id="b3_cartago">
+<button onclick="checkText('b3_cartago',['cartago'],'fb_b3_cartago')">Comprobar</button>
+<div id="fb_b3_cartago" class="feedback"></div>
 </div>
 
 <div class="box mapa">
 <h3>Mapa conceptual</h3>
-<p>LEGIONES → eran __________________</p>
-<p>ROMA → conquistó:</p>
-<ul>
-<li>__________________</li>
-<li>__________________</li>
-<li>__________________</li>
-</ul>
-<p>ROMA → controló el mar __________________</p>
+<p>LEGIONES → eran <input id="b3_map1"></p>
+<button onclick="checkText('b3_map1',['soldados'],'fb_b3_map1')">Comprobar</button>
+<div id="fb_b3_map1" class="feedback"></div>
+<p>ROMA → controló el mar <input id="b3_map2"></p>
+<button onclick="checkText('b3_map2',['mediterraneo','mediterráneo'],'fb_b3_map2')">Comprobar</button>
+<div id="fb_b3_map2" class="feedback"></div>
 </div>
 
 <div class="box relaciona">
 <h3>Relaciona desordenado</h3>
 <table>
 <tr><th>Número</th><th>Respuesta</th><th>Letra</th></tr>
-<tr><td>1. Mediterráneo</td><td>_____</td><td>A. enemigo de Roma</td></tr>
-<tr><td>2. Cartago</td><td>_____</td><td>B. soldados romanos</td></tr>
-<tr><td>3. Legiones</td><td>_____</td><td>C. territorio conquistado</td></tr>
-<tr><td>4. Hispania</td><td>_____</td><td>D. mar controlado por Roma</td></tr>
+<tr><td>1. Mediterráneo</td><td><input id="b3_r1"></td><td>A. enemigo de Roma</td></tr>
+<tr><td>2. Cartago</td><td><input id="b3_r2"></td><td>B. soldados romanos</td></tr>
+<tr><td>3. Legiones</td><td><input id="b3_r3"></td><td>C. territorio conquistado</td></tr>
+<tr><td>4. Hispania</td><td><input id="b3_r4"></td><td>D. mar controlado por Roma</td></tr>
 </table>
-</div>
-
-<div class="box actividad">
-<h3>Escribe la palabra correcta</h3>
-<p>Los soldados romanos formaban las __________.</p>
-<p>(legiones / murallas)</p>
+<button onclick="checkRelaciona('b3',[['b3_r1','d'],['b3_r2','a'],['b3_r3','b'],['b3_r4','c']],'fb_b3_rel')">Comprobar</button>
+<div id="fb_b3_rel" class="feedback"></div>
 </div>
 
 <div class="box actividad">
@@ -485,33 +438,32 @@ display:none;
 <tr><td>Legiones</td><td>soldados romanos</td><td>conquistaron territorios</td></tr>
 <tr><td>Cartago</td><td>enemigo de Roma</td><td>luchó contra Roma</td></tr>
 </table>
-
 <h3>Tabla parcial</h3>
 <table>
 <tr><th>Persona / cosa</th><th>¿Qué es?</th><th>¿Qué hizo?</th></tr>
-<tr><td>Legiones</td><td>soldados romanos</td><td>__________________</td></tr>
-<tr><td>Cartago</td><td>__________________</td><td>luchó contra Roma</td></tr>
+<tr><td>Legiones</td><td>soldados romanos</td><td><input id="b3_tab1"></td></tr>
+<tr><td>Cartago</td><td><input id="b3_tab2"></td><td>luchó contra Roma</td></tr>
 </table>
-
-<h3>Tabla más vacía</h3>
-<table>
-<tr><th>Persona / cosa</th><th>¿Qué es?</th><th>¿Qué hizo?</th></tr>
-<tr><td>Mediterráneo</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Hispania</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Grecia</td><td>__________________</td><td>__________________</td></tr>
-</table>
+<button onclick="checkMulti([['b3_tab1',['conquistar','conquistaron']],['b3_tab2',['enemigo']]],'fb_b3_tab')">Comprobar tabla</button>
+<div id="fb_b3_tab" class="feedback"></div>
 </div>
 
 <div class="box quiz">
 <h3>Quiz de 6 preguntas</h3>
-<ol>
-<li>¿Cómo se llamaban los soldados romanos? a) bárbaros b) legiones c) gladiadores</li>
-<li>¿Qué conquistó Roma? a) Australia b) Hispania c) China</li>
-<li>¿Contra quién luchó Roma? a) Cartago b) India c) Persia</li>
-<li>¿Qué mar controló Roma? a) Mediterráneo b) Negro c) Cantábrico</li>
-<li>¿Las legiones ayudaron a conquistar territorios? a) sí b) no</li>
-<li>¿Egipto fue conquistado por Roma? a) sí b) no</li>
-</ol>
+<p>1. ¿Cómo se llamaban los soldados romanos?</p>
+<select id="b3_q1"><option></option><option>Legiones</option><option>Bárbaros</option><option>Gladiadores</option></select>
+<p>2. ¿Qué conquistó Roma?</p>
+<select id="b3_q2"><option></option><option>Hispania</option><option>China</option><option>Australia</option></select>
+<p>3. ¿Contra quién luchó Roma?</p>
+<select id="b3_q3"><option></option><option>Cartago</option><option>India</option><option>Persia</option></select>
+<p>4. ¿Qué mar controló Roma?</p>
+<select id="b3_q4"><option></option><option>Mediterráneo</option><option>Negro</option><option>Cantábrico</option></select>
+<p>5. ¿Las legiones ayudaron a conquistar territorios?</p>
+<select id="b3_q5"><option></option><option>Sí</option><option>No</option></select>
+<p>6. ¿Egipto fue conquistado por Roma?</p>
+<select id="b3_q6"><option></option><option>Sí</option><option>No</option></select>
+<button onclick="checkQuiz([['b3_q1','Legiones'],['b3_q2','Hispania'],['b3_q3','Cartago'],['b3_q4','Mediterráneo'],['b3_q5','Sí'],['b3_q6','Sí']],'fb_b3_quiz')">Comprobar quiz</button>
+<div id="fb_b3_quiz" class="feedback"></div>
 </div>
 
 <div class="box resumen">
@@ -524,7 +476,7 @@ display:none;
 </div>
 </section>
 
-<!-- BLOQUE 4 -->
+<!-- BLOQUES 4-7 simplified but interactive -->
 <section class="section">
 <span class="progreso">BLOQUE 4 DE 7</span>
 <h2>Julio César y Octavio</h2>
@@ -533,90 +485,56 @@ display:none;
 <h3>Texto adaptado</h3>
 <p>Julio César fue un general romano.</p>
 <p>Julio César se convirtió en dictador.</p>
-<p>Después, Octavio fue el primer emperador.</p>
+<p>Octavio fue el primer emperador.</p>
 <p>Durante la pax romana hubo paz y prosperidad.</p>
 </div>
 
 <div class="box actividad">
 <h3>Actividades simples</h3>
-<p>Completa.</p>
-<p>El primer emperador fue:</p>
-<input>
-<p>Durante la pax romana hubo:</p>
-<input>
-</div>
-
-<div class="box mapa">
-<h3>Mapa conceptual</h3>
-<p>JULIO CÉSAR → fue un __________________</p>
-<p>JULIO CÉSAR → se convirtió en __________________</p>
-<p>OCTAVIO → fue el primer __________________</p>
-<p>PAX ROMANA → hubo __________________ y __________________</p>
+<p>El primer emperador fue...</p>
+<input id="b4_octavio">
+<button onclick="checkText('b4_octavio',['octavio'],'fb_b4_octavio')">Comprobar</button>
+<div id="fb_b4_octavio" class="feedback"></div>
+<p>Durante la pax romana hubo...</p>
+<input id="b4_pax">
+<button onclick="checkText('b4_pax',['paz','prosperidad'],'fb_b4_pax')">Comprobar</button>
+<div id="fb_b4_pax" class="feedback"></div>
 </div>
 
 <div class="box relaciona">
 <h3>Relaciona desordenado</h3>
 <table>
 <tr><th>Número</th><th>Respuesta</th><th>Letra</th></tr>
-<tr><td>1. Julio César</td><td>_____</td><td>A. época de paz</td></tr>
-<tr><td>2. Pax romana</td><td>_____</td><td>B. primer emperador</td></tr>
-<tr><td>3. Octavio</td><td>_____</td><td>C. gobernante del Imperio</td></tr>
-<tr><td>4. Emperador</td><td>_____</td><td>D. general y dictador</td></tr>
+<tr><td>1. Julio César</td><td><input id="b4_r1"></td><td>A. época de paz</td></tr>
+<tr><td>2. Pax romana</td><td><input id="b4_r2"></td><td>B. primer emperador</td></tr>
+<tr><td>3. Octavio</td><td><input id="b4_r3"></td><td>C. gobernante del Imperio</td></tr>
+<tr><td>4. Emperador</td><td><input id="b4_r4"></td><td>D. general y dictador</td></tr>
 </table>
-</div>
-
-<div class="box actividad">
-<h3>Escribe la palabra correcta</h3>
-<p>Octavio fue el primer __________.</p>
-<p>(emperador / esclavo)</p>
-</div>
-
-<div class="box actividad">
-<h3>Tabla modelo</h3>
-<table>
-<tr><th>Persona / cosa</th><th>¿Quién era?</th><th>¿Qué hizo?</th></tr>
-<tr><td>Julio César</td><td>general romano</td><td>se convirtió en dictador</td></tr>
-<tr><td>Octavio</td><td>emperador romano</td><td>fue el primer emperador</td></tr>
-</table>
-
-<h3>Tabla parcial</h3>
-<table>
-<tr><th>Persona / cosa</th><th>¿Quién era?</th><th>¿Qué hizo?</th></tr>
-<tr><td>Julio César</td><td>general romano</td><td>__________________</td></tr>
-<tr><td>Octavio</td><td>__________________</td><td>fue el primer emperador</td></tr>
-</table>
-
-<h3>Tabla más vacía</h3>
-<table>
-<tr><th>Persona / cosa</th><th>¿Qué es?</th><th>¿Qué pasó?</th></tr>
-<tr><td>Pax romana</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Emperador</td><td>__________________</td><td>__________________</td></tr>
-</table>
+<button onclick="checkRelaciona('b4',[['b4_r1','d'],['b4_r2','a'],['b4_r3','b'],['b4_r4','c']],'fb_b4_rel')">Comprobar</button>
+<div id="fb_b4_rel" class="feedback"></div>
 </div>
 
 <div class="box quiz">
 <h3>Quiz de 6 preguntas</h3>
-<ol>
-<li>¿Quién fue un general romano? a) Julio César b) Teodosio c) Rómulo</li>
-<li>¿En qué se convirtió Julio César? a) dictador b) esclavo c) templo</li>
-<li>¿Quién fue el primer emperador? a) Octavio b) César c) Teodosio</li>
-<li>¿Cómo se llamó la época de paz? a) pax romana b) República c) Senado</li>
-<li>¿Qué hubo durante la pax romana? a) paz b) hambre c) guerras</li>
-<li>¿Qué hubo además de paz? a) prosperidad b) crisis c) pobreza</li>
-</ol>
+<p>1. ¿Quién fue un general romano?</p>
+<select id="b4_q1"><option></option><option>Julio César</option><option>Teodosio</option><option>Rómulo</option></select>
+<p>2. ¿En qué se convirtió Julio César?</p>
+<select id="b4_q2"><option></option><option>Dictador</option><option>Esclavo</option><option>Templo</option></select>
+<p>3. ¿Quién fue el primer emperador?</p>
+<select id="b4_q3"><option></option><option>Octavio</option><option>César</option><option>Teodosio</option></select>
+<p>4. ¿Cómo se llamó la época de paz?</p>
+<select id="b4_q4"><option></option><option>Pax romana</option><option>República</option><option>Senado</option></select>
+<p>5. ¿Qué hubo durante la pax romana?</p>
+<select id="b4_q5"><option></option><option>Paz</option><option>Hambre</option><option>Guerras</option></select>
+<p>6. ¿Qué hubo además de paz?</p>
+<select id="b4_q6"><option></option><option>Prosperidad</option><option>Crisis</option><option>Pobreza</option></select>
+<button onclick="checkQuiz([['b4_q1','Julio César'],['b4_q2','Dictador'],['b4_q3','Octavio'],['b4_q4','Pax romana'],['b4_q5','Paz'],['b4_q6','Prosperidad']],'fb_b4_quiz')">Comprobar quiz</button>
+<div id="fb_b4_quiz" class="feedback"></div>
 </div>
 
-<div class="box resumen">
-<h3>Lo más importante</h3>
-<ul>
-<li>Julio César fue general y dictador.</li>
-<li>Octavio fue el primer emperador.</li>
-<li>La pax romana fue una época de paz y prosperidad.</li>
-</ul>
-</div>
+<div class="box resumen"><h3>Lo más importante</h3><ul><li>Julio César fue general y dictador.</li><li>Octavio fue el primer emperador.</li><li>La pax romana fue una época de paz y prosperidad.</li></ul></div>
 </section>
 
-<!-- BLOQUE 5 -->
 <section class="section">
 <span class="progreso">BLOQUE 5 DE 7</span>
 <h2>Las ciudades romanas</h2>
@@ -631,90 +549,50 @@ display:none;
 
 <div class="box actividad">
 <h3>Actividades simples</h3>
-<p>Completa.</p>
-<p>En el centro estaba el:</p>
-<input>
-<p>Escribe dos edificios romanos.</p>
-<input placeholder="Edificio 1">
-<input placeholder="Edificio 2">
-</div>
-
-<div class="box mapa">
-<h3>Mapa conceptual</h3>
-<p>CALZADAS → unían las __________________</p>
-<p>FORO → estaba en el __________________</p>
-<p>CIUDADES → tenían:</p>
-<ul>
-<li>__________________</li>
-<li>__________________</li>
-<li>__________________</li>
-</ul>
+<p>En el centro estaba el...</p>
+<input id="b5_foro">
+<button onclick="checkText('b5_foro',['foro'],'fb_b5_foro')">Comprobar</button>
+<div id="fb_b5_foro" class="feedback"></div>
+<p>Las ciudades estaban unidas por...</p>
+<input id="b5_calzadas">
+<button onclick="checkText('b5_calzadas',['calzadas'],'fb_b5_calzadas')">Comprobar</button>
+<div id="fb_b5_calzadas" class="feedback"></div>
 </div>
 
 <div class="box relaciona">
 <h3>Relaciona desordenado</h3>
 <table>
 <tr><th>Número</th><th>Respuesta</th><th>Letra</th></tr>
-<tr><td>1. Foro</td><td>_____</td><td>A. protegían la ciudad</td></tr>
-<tr><td>2. Murallas</td><td>_____</td><td>B. unían ciudades</td></tr>
-<tr><td>3. Anfiteatro</td><td>_____</td><td>C. centro de la ciudad</td></tr>
-<tr><td>4. Calzadas</td><td>_____</td><td>D. lugar para espectáculos</td></tr>
+<tr><td>1. Foro</td><td><input id="b5_r1"></td><td>A. protegían la ciudad</td></tr>
+<tr><td>2. Murallas</td><td><input id="b5_r2"></td><td>B. unían ciudades</td></tr>
+<tr><td>3. Anfiteatro</td><td><input id="b5_r3"></td><td>C. centro de la ciudad</td></tr>
+<tr><td>4. Calzadas</td><td><input id="b5_r4"></td><td>D. lugar para espectáculos</td></tr>
 </table>
-</div>
-
-<div class="box actividad">
-<h3>Escribe la palabra correcta</h3>
-<p>El __________ estaba en el centro de la ciudad.</p>
-<p>(foro / ejército)</p>
-</div>
-
-<div class="box actividad">
-<h3>Tabla modelo</h3>
-<table>
-<tr><th>Lugar</th><th>¿Qué es?</th><th>¿Para qué servía?</th></tr>
-<tr><td>Foro</td><td>plaza central</td><td>reuniones y mercado</td></tr>
-<tr><td>Calzadas</td><td>caminos romanos</td><td>unir ciudades</td></tr>
-</table>
-
-<h3>Tabla parcial</h3>
-<table>
-<tr><th>Lugar</th><th>¿Qué es?</th><th>¿Para qué servía?</th></tr>
-<tr><td>Foro</td><td>plaza central</td><td>__________________</td></tr>
-<tr><td>Calzadas</td><td>__________________</td><td>unir ciudades</td></tr>
-</table>
-
-<h3>Tabla más vacía</h3>
-<table>
-<tr><th>Lugar</th><th>¿Qué es?</th><th>¿Para qué servía?</th></tr>
-<tr><td>Murallas</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Anfiteatro</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Templo</td><td>__________________</td><td>__________________</td></tr>
-</table>
+<button onclick="checkRelaciona('b5',[['b5_r1','c'],['b5_r2','a'],['b5_r3','d'],['b5_r4','b']],'fb_b5_rel')">Comprobar</button>
+<div id="fb_b5_rel" class="feedback"></div>
 </div>
 
 <div class="box quiz">
 <h3>Quiz de 6 preguntas</h3>
-<ol>
-<li>¿Qué unía las ciudades romanas? a) calzadas b) barcos c) murallas</li>
-<li>¿Qué estaba en el centro de la ciudad? a) foro b) puerto c) palacio</li>
-<li>¿Qué protegía la ciudad? a) murallas b) teatros c) foros</li>
-<li>¿Dónde había espectáculos? a) anfiteatro b) Senado c) mercado</li>
-<li>¿Las ciudades tenían templos? a) sí b) no</li>
-<li>¿Las ciudades romanas estaban comunicadas? a) sí b) no</li>
-</ol>
+<p>1. ¿Qué unía las ciudades romanas?</p>
+<select id="b5_q1"><option></option><option>Calzadas</option><option>Barcos</option><option>Murallas</option></select>
+<p>2. ¿Qué estaba en el centro?</p>
+<select id="b5_q2"><option></option><option>Foro</option><option>Puerto</option><option>Palacio</option></select>
+<p>3. ¿Qué protegía la ciudad?</p>
+<select id="b5_q3"><option></option><option>Murallas</option><option>Teatros</option><option>Foros</option></select>
+<p>4. ¿Dónde había espectáculos?</p>
+<select id="b5_q4"><option></option><option>Anfiteatro</option><option>Senado</option><option>Mercado</option></select>
+<p>5. ¿Las ciudades tenían templos?</p>
+<select id="b5_q5"><option></option><option>Sí</option><option>No</option></select>
+<p>6. ¿Las ciudades romanas estaban comunicadas?</p>
+<select id="b5_q6"><option></option><option>Sí</option><option>No</option></select>
+<button onclick="checkQuiz([['b5_q1','Calzadas'],['b5_q2','Foro'],['b5_q3','Murallas'],['b5_q4','Anfiteatro'],['b5_q5','Sí'],['b5_q6','Sí']],'fb_b5_quiz')">Comprobar quiz</button>
+<div id="fb_b5_quiz" class="feedback"></div>
 </div>
 
-<div class="box resumen">
-<h3>Lo más importante</h3>
-<ul>
-<li>Las calzadas unían ciudades.</li>
-<li>El foro estaba en el centro.</li>
-<li>Las murallas protegían la ciudad.</li>
-</ul>
-</div>
+<div class="box resumen"><h3>Lo más importante</h3><ul><li>Las calzadas unían ciudades.</li><li>El foro estaba en el centro.</li><li>Las murallas protegían la ciudad.</li></ul></div>
 </section>
 
-<!-- BLOQUE 6 -->
 <section class="section">
 <span class="progreso">BLOQUE 6 DE 7</span>
 <h2>La sociedad romana</h2>
@@ -730,85 +608,50 @@ display:none;
 
 <div class="box actividad">
 <h3>Actividades simples</h3>
-<p>Completa.</p>
-<p>Los __________ no eran libres.</p>
-<input>
-<p>Escribe qué hacía la mujer romana.</p>
-<textarea></textarea>
-</div>
-
-<div class="box mapa">
-<h3>Mapa conceptual</h3>
-<p>PATRICIOS → tenían __________________</p>
-<p>PLEBEYOS → trabajaban y pagaban __________________</p>
-<p>LIBERTOS → habían sido __________________</p>
-<p>ESCLAVOS → no eran __________________</p>
+<p>Los que no eran libres eran los...</p>
+<input id="b6_esclavos">
+<button onclick="checkText('b6_esclavos',['esclavos'],'fb_b6_esclavos')">Comprobar</button>
+<div id="fb_b6_esclavos" class="feedback"></div>
+<p>Los que trabajaban y pagaban impuestos eran los...</p>
+<input id="b6_plebeyos">
+<button onclick="checkText('b6_plebeyos',['plebeyos'],'fb_b6_plebeyos')">Comprobar</button>
+<div id="fb_b6_plebeyos" class="feedback"></div>
 </div>
 
 <div class="box relaciona">
 <h3>Relaciona desordenado</h3>
 <table>
 <tr><th>Número</th><th>Respuesta</th><th>Letra</th></tr>
-<tr><td>1. Patricios</td><td>_____</td><td>A. habían sido esclavos</td></tr>
-<tr><td>2. Esclavos</td><td>_____</td><td>B. trabajaban y pagaban impuestos</td></tr>
-<tr><td>3. Libertos</td><td>_____</td><td>C. ricos y con poder</td></tr>
-<tr><td>4. Plebeyos</td><td>_____</td><td>D. no eran libres</td></tr>
+<tr><td>1. Patricios</td><td><input id="b6_r1"></td><td>A. habían sido esclavos</td></tr>
+<tr><td>2. Esclavos</td><td><input id="b6_r2"></td><td>B. trabajaban y pagaban impuestos</td></tr>
+<tr><td>3. Libertos</td><td><input id="b6_r3"></td><td>C. ricos y con poder</td></tr>
+<tr><td>4. Plebeyos</td><td><input id="b6_r4"></td><td>D. no eran libres</td></tr>
 </table>
-</div>
-
-<div class="box actividad">
-<h3>Escribe la palabra correcta</h3>
-<p>Los __________ trabajaban y pagaban impuestos.</p>
-<p>(plebeyos / emperadores)</p>
-</div>
-
-<div class="box actividad">
-<h3>Tabla modelo</h3>
-<table>
-<tr><th>Grupo</th><th>¿Quién era?</th><th>¿Qué hacía?</th></tr>
-<tr><td>Patricios</td><td>grupo rico</td><td>tenían poder</td></tr>
-<tr><td>Plebeyos</td><td>trabajadores</td><td>pagaban impuestos</td></tr>
-</table>
-
-<h3>Tabla parcial</h3>
-<table>
-<tr><th>Grupo</th><th>¿Quién era?</th><th>¿Qué hacía?</th></tr>
-<tr><td>Patricios</td><td>grupo rico</td><td>__________________</td></tr>
-<tr><td>Plebeyos</td><td>__________________</td><td>pagaban impuestos</td></tr>
-</table>
-
-<h3>Tabla más vacía</h3>
-<table>
-<tr><th>Grupo</th><th>¿Quién era?</th><th>¿Qué hacía?</th></tr>
-<tr><td>Libertos</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Esclavos</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Mujer romana</td><td>__________________</td><td>__________________</td></tr>
-</table>
+<button onclick="checkRelaciona('b6',[['b6_r1','c'],['b6_r2','d'],['b6_r3','a'],['b6_r4','b']],'fb_b6_rel')">Comprobar</button>
+<div id="fb_b6_rel" class="feedback"></div>
 </div>
 
 <div class="box quiz">
 <h3>Quiz de 6 preguntas</h3>
-<ol>
-<li>¿Quiénes tenían poder? a) patricios b) esclavos c) libertos</li>
-<li>¿Quiénes trabajaban? a) plebeyos b) emperadores c) senadores</li>
-<li>¿Quiénes habían sido esclavos? a) libertos b) bárbaros c) soldados</li>
-<li>¿Quiénes no eran libres? a) esclavos b) plebeyos c) patricios</li>
-<li>¿Qué hacía la mujer romana? a) cuidaba la casa b) luchaba c) gobernaba</li>
-<li>¿Los patricios eran ricos? a) sí b) no</li>
-</ol>
+<p>1. ¿Quiénes tenían poder?</p>
+<select id="b6_q1"><option></option><option>Patricios</option><option>Esclavos</option><option>Libertos</option></select>
+<p>2. ¿Quiénes trabajaban?</p>
+<select id="b6_q2"><option></option><option>Plebeyos</option><option>Emperadores</option><option>Senadores</option></select>
+<p>3. ¿Quiénes habían sido esclavos?</p>
+<select id="b6_q3"><option></option><option>Libertos</option><option>Bárbaros</option><option>Soldados</option></select>
+<p>4. ¿Quiénes no eran libres?</p>
+<select id="b6_q4"><option></option><option>Esclavos</option><option>Plebeyos</option><option>Patricios</option></select>
+<p>5. ¿Qué hacía la mujer romana?</p>
+<select id="b6_q5"><option></option><option>Cuidaba la casa</option><option>Luchaba</option><option>Gobernaba</option></select>
+<p>6. ¿Los patricios eran ricos?</p>
+<select id="b6_q6"><option></option><option>Sí</option><option>No</option></select>
+<button onclick="checkQuiz([['b6_q1','Patricios'],['b6_q2','Plebeyos'],['b6_q3','Libertos'],['b6_q4','Esclavos'],['b6_q5','Cuidaba la casa'],['b6_q6','Sí']],'fb_b6_quiz')">Comprobar quiz</button>
+<div id="fb_b6_quiz" class="feedback"></div>
 </div>
 
-<div class="box resumen">
-<h3>Lo más importante</h3>
-<ul>
-<li>Los patricios tenían poder y dinero.</li>
-<li>Los plebeyos trabajaban y pagaban impuestos.</li>
-<li>Los esclavos no eran libres.</li>
-</ul>
-</div>
+<div class="box resumen"><h3>Lo más importante</h3><ul><li>Los patricios tenían poder y dinero.</li><li>Los plebeyos trabajaban y pagaban impuestos.</li><li>Los esclavos no eran libres.</li></ul></div>
 </section>
 
-<!-- BLOQUE 7 -->
 <section class="section">
 <span class="progreso">BLOQUE 7 DE 7</span>
 <h2>La caída de Roma</h2>
@@ -824,148 +667,151 @@ display:none;
 
 <div class="box actividad">
 <h3>Actividades simples</h3>
-<p>Escribe dos causas de la caída de Roma.</p>
-<input placeholder="Causa 1">
-<input placeholder="Causa 2">
-<p>Completa.</p>
-<p>El emperador que dividió el Imperio fue:</p>
-<input>
-</div>
-
-<div class="box mapa">
-<h3>Mapa conceptual</h3>
-<p>ROMA → entró en __________________</p>
-<p>BÁRBAROS → atacaron las __________________</p>
-<p>EMPERADORES → eran __________________</p>
-<p>TEODOSIO → dividió el __________________</p>
-<p>476 → cayó el Imperio romano de __________________</p>
+<p>El emperador que dividió el Imperio fue...</p>
+<input id="b7_teodosio">
+<button onclick="checkText('b7_teodosio',['teodosio'],'fb_b7_teodosio')">Comprobar</button>
+<div id="fb_b7_teodosio" class="feedback"></div>
+<p>Roma cayó en el año...</p>
+<input id="b7_476">
+<button onclick="checkText('b7_476',['476'],'fb_b7_476')">Comprobar</button>
+<div id="fb_b7_476" class="feedback"></div>
 </div>
 
 <div class="box relaciona">
 <h3>Relaciona desordenado</h3>
 <table>
 <tr><th>Número</th><th>Respuesta</th><th>Letra</th></tr>
-<tr><td>1. Bárbaros</td><td>_____</td><td>A. fecha de la caída</td></tr>
-<tr><td>2. Teodosio</td><td>_____</td><td>B. atacaron fronteras</td></tr>
-<tr><td>3. 476</td><td>_____</td><td>C. problema político</td></tr>
-<tr><td>4. Emperadores débiles</td><td>_____</td><td>D. dividió el Imperio</td></tr>
+<tr><td>1. Bárbaros</td><td><input id="b7_r1"></td><td>A. fecha de la caída</td></tr>
+<tr><td>2. Teodosio</td><td><input id="b7_r2"></td><td>B. atacaron fronteras</td></tr>
+<tr><td>3. 476</td><td><input id="b7_r3"></td><td>C. problema político</td></tr>
+<tr><td>4. Emperadores débiles</td><td><input id="b7_r4"></td><td>D. dividió el Imperio</td></tr>
 </table>
-</div>
-
-<div class="box actividad">
-<h3>Escribe la palabra correcta</h3>
-<p>Los pueblos __________ atacaron Roma.</p>
-<p>(bárbaros / romanos)</p>
-</div>
-
-<div class="box actividad">
-<h3>Tabla modelo</h3>
-<table>
-<tr><th>Problema / persona</th><th>¿Qué era?</th><th>¿Qué pasó?</th></tr>
-<tr><td>Bárbaros</td><td>pueblos invasores</td><td>atacaron fronteras</td></tr>
-<tr><td>Teodosio</td><td>emperador romano</td><td>dividió el Imperio</td></tr>
-</table>
-
-<h3>Tabla parcial</h3>
-<table>
-<tr><th>Problema / persona</th><th>¿Qué era?</th><th>¿Qué pasó?</th></tr>
-<tr><td>Bárbaros</td><td>pueblos invasores</td><td>__________________</td></tr>
-<tr><td>Teodosio</td><td>__________________</td><td>dividió el Imperio</td></tr>
-</table>
-
-<h3>Tabla más vacía</h3>
-<table>
-<tr><th>Problema / persona</th><th>¿Qué era?</th><th>¿Qué pasó?</th></tr>
-<tr><td>Emperadores débiles</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Año 476</td><td>__________________</td><td>__________________</td></tr>
-<tr><td>Crisis</td><td>__________________</td><td>__________________</td></tr>
-</table>
+<button onclick="checkRelaciona('b7',[['b7_r1','b'],['b7_r2','d'],['b7_r3','a'],['b7_r4','c']],'fb_b7_rel')">Comprobar</button>
+<div id="fb_b7_rel" class="feedback"></div>
 </div>
 
 <div class="box quiz">
 <h3>Quiz de 6 preguntas</h3>
-<ol>
-<li>¿Qué atacaron los bárbaros? a) fronteras b) barcos c) templos</li>
-<li>¿Cómo eran muchos emperadores? a) débiles b) fuertes c) jóvenes</li>
-<li>¿Quién dividió el Imperio? a) Teodosio b) Octavio c) César</li>
-<li>¿En qué año cayó Roma? a) 476 b) 27 a.C. c) 509 a.C.</li>
-<li>¿Roma tuvo una crisis? a) sí b) no</li>
-<li>¿Cayó el Imperio romano de Occidente? a) sí b) no</li>
-</ol>
+<p>1. ¿Qué atacaron los bárbaros?</p>
+<select id="b7_q1"><option></option><option>Fronteras</option><option>Barcos</option><option>Templos</option></select>
+<p>2. ¿Cómo eran muchos emperadores?</p>
+<select id="b7_q2"><option></option><option>Débiles</option><option>Fuertes</option><option>Jóvenes</option></select>
+<p>3. ¿Quién dividió el Imperio?</p>
+<select id="b7_q3"><option></option><option>Teodosio</option><option>Octavio</option><option>César</option></select>
+<p>4. ¿En qué año cayó Roma?</p>
+<select id="b7_q4"><option></option><option>476</option><option>27 a.C.</option><option>509 a.C.</option></select>
+<p>5. ¿Roma tuvo una crisis?</p>
+<select id="b7_q5"><option></option><option>Sí</option><option>No</option></select>
+<p>6. ¿Cayó el Imperio romano de Occidente?</p>
+<select id="b7_q6"><option></option><option>Sí</option><option>No</option></select>
+<button onclick="checkQuiz([['b7_q1','Fronteras'],['b7_q2','Débiles'],['b7_q3','Teodosio'],['b7_q4','476'],['b7_q5','Sí'],['b7_q6','Sí']],'fb_b7_quiz')">Comprobar quiz</button>
+<div id="fb_b7_quiz" class="feedback"></div>
 </div>
 
-<div class="box resumen">
-<h3>Lo más importante</h3>
-<ul>
-<li>Roma entró en crisis.</li>
-<li>Los bárbaros atacaron las fronteras.</li>
-<li>Teodosio dividió el Imperio.</li>
-<li>En el año 476 cayó el Imperio romano de Occidente.</li>
-</ul>
-</div>
+<div class="box resumen"><h3>Lo más importante</h3><ul><li>Roma entró en crisis.</li><li>Los bárbaros atacaron las fronteras.</li><li>Teodosio dividió el Imperio.</li><li>En el año 476 cayó el Imperio romano de Occidente.</li></ul></div>
 </section>
 
-<!-- REPASO FINAL -->
 <section class="section">
-<h2>Repaso final del tema</h2>
+<h2>Repaso final</h2>
 
 <div class="box mapa">
 <h3>Mapa conceptual global</h3>
-<p>ROMA → nació como __________________</p>
-<p>ROMA → después fue una __________________</p>
-<p>ROMA → más tarde tuvo un __________________</p>
-<p>ROMA → cayó en el año __________________</p>
-</div>
-
-<div class="box actividad">
-<h3>Gran tabla final</h3>
-<table>
-<tr><th>Etapa</th><th>¿Qué pasó?</th></tr>
-<tr><td>Monarquía</td><td>__________________</td></tr>
-<tr><td>República</td><td>__________________</td></tr>
-<tr><td>Imperio</td><td>__________________</td></tr>
-<tr><td>Caída</td><td>__________________</td></tr>
-</table>
-</div>
-
-<div class="box relaciona">
-<h3>Relaciona global desordenado</h3>
-<table>
-<tr><th>Número</th><th>Respuesta</th><th>Letra</th></tr>
-<tr><td>1. 509 a.C.</td><td>_____</td><td>A. cayó Roma</td></tr>
-<tr><td>2. Octavio</td><td>_____</td><td>B. empezó la República</td></tr>
-<tr><td>3. Foro</td><td>_____</td><td>C. primer emperador</td></tr>
-<tr><td>4. 476</td><td>_____</td><td>D. centro de la ciudad</td></tr>
-</table>
+<p>ROMA → nació en el monte <input id="final1"></p>
+<p>ROMA → después fue una <input id="final2"></p>
+<p>ROMA → tuvo como primer emperador a <input id="final3"></p>
+<p>ROMA → cayó en el año <input id="final4"></p>
+<button onclick="checkMulti([['final1',['palatino']],['final2',['republica','república']],['final3',['octavio']],['final4',['476']]],'fb_final_mapa')">Comprobar mapa final</button>
+<div id="fb_final_mapa" class="feedback"></div>
 </div>
 
 <div class="box quiz">
 <h3>Quiz final general</h3>
-<ol>
-<li>¿Dónde nació Roma? a) Palatino b) Egipto c) Cartago</li>
-<li>¿Qué sistema empezó en 509 a.C.? a) República b) Imperio c) crisis</li>
-<li>¿Quiénes eran ricos y tenían poder? a) patricios b) esclavos c) bárbaros</li>
-<li>¿Quién fue el primer emperador? a) Octavio b) Teodosio c) Rómulo</li>
-<li>¿Qué unía las ciudades romanas? a) calzadas b) murallas c) templos</li>
-<li>¿Quiénes no eran libres? a) esclavos b) patricios c) libertos</li>
-<li>¿Quién dividió el Imperio? a) Teodosio b) César c) Octavio</li>
-<li>¿En qué año cayó Roma? a) 476 b) 27 a.C. c) 509 a.C.</li>
-<li>¿Qué mar controló Roma? a) Mediterráneo b) Cantábrico c) Negro</li>
-<li>¿Qué era el foro? a) centro de la ciudad b) ejército c) frontera</li>
-</ol>
+<p>1. ¿Dónde nació Roma?</p>
+<select id="fq1"><option></option><option>Palatino</option><option>Egipto</option><option>Cartago</option></select>
+<p>2. ¿Qué sistema empezó en 509 a.C.?</p>
+<select id="fq2"><option></option><option>República</option><option>Imperio</option><option>Crisis</option></select>
+<p>3. ¿Quién fue el primer emperador?</p>
+<select id="fq3"><option></option><option>Octavio</option><option>Teodosio</option><option>Rómulo</option></select>
+<p>4. ¿Qué unía las ciudades romanas?</p>
+<select id="fq4"><option></option><option>Calzadas</option><option>Murallas</option><option>Templos</option></select>
+<p>5. ¿En qué año cayó Roma?</p>
+<select id="fq5"><option></option><option>476</option><option>27 a.C.</option><option>509 a.C.</option></select>
+<button onclick="checkQuiz([['fq1','Palatino'],['fq2','República'],['fq3','Octavio'],['fq4','Calzadas'],['fq5','476']],'fb_final_quiz')">Comprobar quiz final</button>
+<div id="fb_final_quiz" class="feedback"></div>
 </div>
 </section>
 
 </div>
 
 <script>
-function toggle(id){
-const element = document.getElementById(id);
-if(element.style.display === "block"){
-element.style.display = "none";
-}else{
-element.style.display = "block";
+let score = 0;
+let completed = {};
+
+function normaliza(txt){
+return txt.toLowerCase()
+.normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+.trim();
 }
+
+function addScore(key){
+if(!completed[key]){
+score++;
+completed[key]=true;
+document.getElementById("score").innerText = score;
+}
+}
+
+function feedback(id, ok, msgOk="Correcto. Muy bien.", msgKo="Revisa el texto y vuelve a intentarlo."){
+const el = document.getElementById(id);
+el.className = "feedback " + (ok ? "ok" : "ko");
+el.innerText = ok ? msgOk : msgKo;
+}
+
+function checkText(inputId, answers, feedbackId){
+const value = normaliza(document.getElementById(inputId).value);
+const ok = answers.some(ans => value.includes(normaliza(ans)));
+feedback(feedbackId, ok);
+if(ok) addScore(feedbackId);
+}
+
+function checkMulti(items, feedbackId){
+let ok = true;
+items.forEach(item=>{
+const value = normaliza(document.getElementById(item[0]).value);
+const answers = item[1];
+const itemOk = answers.some(ans => value.includes(normaliza(ans)));
+if(!itemOk) ok = false;
+});
+feedback(feedbackId, ok, "Tabla correcta. Muy buen trabajo.", "Hay alguna casilla que debes revisar.");
+if(ok) addScore(feedbackId);
+}
+
+function checkRelaciona(block, pairs, feedbackId){
+let ok = true;
+pairs.forEach(pair=>{
+const value = normaliza(document.getElementById(pair[0]).value);
+if(value !== normaliza(pair[1])) ok = false;
+});
+feedback(feedbackId, ok, "Relaciona correcto. Perfecto.", "Alguna letra no está bien. Vuelve al texto.");
+if(ok) addScore(feedbackId);
+}
+
+function checkQuiz(pairs, feedbackId){
+let correct = 0;
+pairs.forEach(pair=>{
+const value = document.getElementById(pair[0]).value;
+if(value === pair[1]) correct++;
+});
+const ok = correct === pairs.length;
+const el = document.getElementById(feedbackId);
+el.className = "feedback " + (ok ? "ok" : "ko");
+el.innerText = ok ? "Quiz perfecto: " + correct + "/" + pairs.length : "Has acertado " + correct + "/" + pairs.length + ". Revisa las que faltan.";
+if(ok) addScore(feedbackId);
+}
+
+function toggle(id){
+const el = document.getElementById(id);
+el.style.display = el.style.display === "block" ? "none" : "block";
 }
 </script>
 
